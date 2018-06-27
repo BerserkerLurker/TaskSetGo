@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Ahmed Karim on 26/06/18 17:52
+  ~ Copyright (c) 2018 . All rights reserved.
+  ~ Last modified 26/06/18 17:52
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/nav_grp1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home_fragment"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home"/>
+
+        <item
+            android:id="@+id/nav_bin_fragment"
+            android:icon="@drawable/ic_delete_black_24dp"
+            android:title="Bin"/>
+
+
+    </group>
+
+    <group
+        android:id="@+id/nav_grp2"
+        android:checkableBehavior="single">
+
+                <item
+                    android:icon="@drawable/ic_settings_black_24dp"
+                    android:title="Settings"/>
+
+                <item
+                    android:icon="@drawable/ic_help_black_24dp"
+                    android:title="Help"/>
+
+                <item
+                    android:icon="@drawable/ic_info_black_24dp"
+                    android:title="About"/>
+
+    </group>
+
+</menu>

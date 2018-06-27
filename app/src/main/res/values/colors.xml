@@ -6,7 +6,19 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="colorPrimary">#118AB2</color>
+    <color name="colorPrimaryDark">#073B4C</color>
+    <color name="colorAccent">#FFD166</color>
+
+
+    <color name="infraRed">#EF476F</color>
+    <color name="orangeYellow">#FFD166</color>
+    <color name="caribbeanGreen">#06D6A0</color>
+    <color name="cyanCornflowerBlue">#118AB2</color>
+    <color name="warmBlack">#073B4C</color>
+    <!-- Color Palette Source : https://coolors.co/ef476f-ffd166-06d6a0-118ab2-073b4c-->
+
 </resources>

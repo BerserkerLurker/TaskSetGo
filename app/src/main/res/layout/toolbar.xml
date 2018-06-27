@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Ahmed Karim on 26/06/18 18:24
+  ~ Copyright (c) 2018 . All rights reserved.
+  ~ Last modified 26/06/18 18:24
+  -->
+
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/toolbar"
+    android:fitsSystemWindows="true"
+    android:minHeight="?attr/actionBarSize"
+    android:background="?attr/colorPrimary">
+
+</android.support.v7.widget.Toolbar>
