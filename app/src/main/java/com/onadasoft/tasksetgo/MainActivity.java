@@ -18,6 +18,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         // Toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        // Custom title
+        // getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // TextView mTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
 
         // Drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -143,5 +147,11 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggles
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }

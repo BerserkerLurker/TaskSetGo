@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Ahmed Karim on 27/06/18 20:29
+  ~ Copyright (c) 2018 . All rights reserved.
+  ~ Last modified 27/06/18 20:29
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity">
+
+
+    <item
+        android:id="@+id/action_help"
+        android:title="Help"
+        app:showAsAction="never"/>
+
+    <!--<item-->
+        <!--android:id="@+id/miCompose"-->
+        <!--android:icon="@drawable/ic_info_black_24dp"-->
+        <!--app:showAsAction="ifRoom"-->
+        <!--android:title="Compose">-->
+    <!--</item>-->
+    <!--<item-->
+        <!--android:id="@+id/miProfile"-->
+        <!--android:icon="@drawable/ic_help_black_24dp"-->
+        <!--app:showAsAction="ifRoom|withText"-->
+        <!--android:title="Profile">-->
+    <!--</item>-->
+</menu>
