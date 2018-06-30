@@ -43,4 +43,8 @@
         <!--<item name="android:textStyle">italic</item>-->
     <!--</style>-->
 
+    <style name="PopupMenuStyle" parent="Theme.AppCompat.Light">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
 </resources>

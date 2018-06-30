@@ -18,7 +18,8 @@
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:titleTextColor="@android:color/white"
-        android:theme="@style/ToolbarTheme">
+        android:theme="@style/ToolbarTheme"
+        app:popupTheme="@style/PopupMenuStyle">
 
         <!--<TextView-->
             <!--android:id="@+id/toolbar_title"-->
