@@ -13,7 +13,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 
-@Entity(tableName = "subtask",
+@Entity(tableName = "subtask_table",
         foreignKeys = @ForeignKey(entity = Task.class,
                                   parentColumns = "id",
                                   childColumns = "task_id"))
