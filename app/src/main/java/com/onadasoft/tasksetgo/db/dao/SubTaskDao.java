@@ -12,7 +12,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.onadasoft.tasksetgo.db.entity.SubTask;
+import com.onadasoft.tasksetgo.db.entity.SubTaskEntity;
 
 import java.util.List;
 
@@ -20,20 +20,23 @@ import java.util.List;
 public interface SubTaskDao {
 
     @Insert
-    void insertSubTask(SubTask subTask);
+    void insertSubTask(SubTaskEntity subTask);
 
     @Insert
-    long insertSubTaskGetId(SubTask subTask);
+    void insertAllSubTasks(List<SubTaskEntity> subTasks);
+
+    @Insert
+    long insertSubTaskGetId(SubTaskEntity subTask);
 
     @Update
-    void updateSubTasks(SubTask... subTasks);
+    void updateSubTasks(SubTaskEntity... subTasks);
 
     @Delete
-    void deleteSubTasks(SubTask... subTasks);
+    void deleteSubTasks(SubTaskEntity... subTasks);
 
     @Query("SELECT * FROM subtask_table")
-    List<SubTask> loadSubTasks();
+    List<SubTaskEntity> loadSubTasks();
 
     @Query("SELECT * FROM subtask_table WHERE task_id = :taskId")
-    List<SubTask> loadSubTasksWithTaskId(int taskId);
+    List<SubTaskEntity> loadSubTasksWithTaskId(int taskId);
 }

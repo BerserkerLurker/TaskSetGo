@@ -12,24 +12,29 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.onadasoft.tasksetgo.db.entity.List;
+import com.onadasoft.tasksetgo.db.entity.ListEntity;
+
+import java.util.List;
 
 @Dao
 public interface ListDao {
 
     @Insert
-    void insertList(List list);
+    void insertList(ListEntity list);
 
     @Insert
-    long insertListGetId(List list);
+    void insertAllLists(List<ListEntity> lists);
+
+    @Insert
+    long insertListGetId(ListEntity list);
 
     @Update
-    void updateLists(List... lists);
+    void updateLists(ListEntity... lists);
 
     @Delete
-    void deleteLists(List... lists);
+    void deleteLists(ListEntity... lists);
 
     @Query("SELECT * FROM list_table ORDER BY color ASC")
-    java.util.List<List> loadAllLists();
+    List<ListEntity> loadAllLists();
 
 }
