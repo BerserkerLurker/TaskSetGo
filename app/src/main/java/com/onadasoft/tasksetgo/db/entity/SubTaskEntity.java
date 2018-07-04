@@ -14,10 +14,10 @@ import android.support.annotation.NonNull;
 
 
 @Entity(tableName = "subtask_table",
-        foreignKeys = @ForeignKey(entity = Task.class,
+        foreignKeys = @ForeignKey(entity = TaskEntity.class,
                                   parentColumns = "id",
                                   childColumns = "task_id"))
-public class SubTask {
+public class SubTaskEntity {
 
     @PrimaryKey
     @NonNull
@@ -32,7 +32,9 @@ public class SubTask {
     @ColumnInfo(name = "title")
     private String mTitle;
 
-    public SubTask(int mId, int mTaskId, @NonNull String mTitle) {
+    public SubTaskEntity(){}
+
+    public SubTaskEntity(int mId, int mTaskId, @NonNull String mTitle) {
         this.mId = mId;
         this.mTaskId = mTaskId;
         this.mTitle = mTitle;
@@ -51,5 +53,17 @@ public class SubTask {
     @NonNull
     public String getTitle() {
         return mTitle;
+    }
+
+    public void setId(@NonNull int mId) {
+        this.mId = mId;
+    }
+
+    public void setTaskId(@NonNull int mTaskId) {
+        this.mTaskId = mTaskId;
+    }
+
+    public void setTitle(@NonNull String mTitle) {
+        this.mTitle = mTitle;
     }
 }

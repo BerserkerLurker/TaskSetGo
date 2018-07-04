@@ -12,7 +12,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "list_table")
-public class List {
+public class ListEntity {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
@@ -26,7 +26,9 @@ public class List {
     @ColumnInfo(name = "color")
     private int mColor;
 
-    public List(int mId, @NonNull String mName, int mColor) {
+    public ListEntity(){}
+
+    public ListEntity(int mId, @NonNull String mName, int mColor) {
         this.mId = mId;
         this.mName = mName;
         this.mColor = mColor;
@@ -44,5 +46,17 @@ public class List {
 
     public int getColor() {
         return mColor;
+    }
+
+    public void setId(@NonNull int mId) {
+        this.mId = mId;
+    }
+
+    public void setName(@NonNull String mName) {
+        this.mName = mName;
+    }
+
+    public void setColor(int mColor) {
+        this.mColor = mColor;
     }
 }

@@ -15,10 +15,10 @@ import android.support.annotation.NonNull;
 import org.threeten.bp.OffsetDateTime;
 
 @Entity(tableName = "task_table",
-        foreignKeys = @ForeignKey(entity = List.class,
+        foreignKeys = @ForeignKey(entity = ListEntity.class,
                                   parentColumns = "id",
                                   childColumns = "list_id"))
-public class Task {
+public class TaskEntity {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
@@ -70,10 +70,12 @@ public class Task {
     private int mTrash = 0;
 
 
-    public Task(int mId, int mListId, int mNumberSubtasks, @NonNull String mTitle,
-                String mDescription, String mLocation, int mStatus, int mProgress, int mPriority,
-                OffsetDateTime mStartAt, OffsetDateTime mDeadline, OffsetDateTime mDeadlineWarning,
-                int mConfidentiality, String mUrl, int mTrash) {
+    public TaskEntity(){}
+
+    public TaskEntity(int mId, int mListId, int mNumberSubtasks, @NonNull String mTitle,
+                      String mDescription, String mLocation, int mStatus, int mProgress, int mPriority,
+                      OffsetDateTime mStartAt, OffsetDateTime mDeadline, OffsetDateTime mDeadlineWarning,
+                      int mConfidentiality, String mUrl, int mTrash) {
         this.mId = mId;
         this.mListId = mListId;
         this.mNumberSubtasks = mNumberSubtasks;
@@ -152,5 +154,65 @@ public class Task {
 
     public int getTrash() {
         return mTrash;
+    }
+
+    public void setId(@NonNull int mId) {
+        this.mId = mId;
+    }
+
+    public void setListId(@NonNull int mListId) {
+        this.mListId = mListId;
+    }
+
+    public void setNumberSubtasks(int mNumberSubtasks) {
+        this.mNumberSubtasks = mNumberSubtasks;
+    }
+
+    public void setTitle(@NonNull String mTitle) {
+        this.mTitle = mTitle;
+    }
+
+    public void setDescription(String mDescription) {
+        this.mDescription = mDescription;
+    }
+
+    public void setLocation(String mLocation) {
+        this.mLocation = mLocation;
+    }
+
+    public void setStatus(int mStatus) {
+        this.mStatus = mStatus;
+    }
+
+    public void setProgress(int mProgress) {
+        this.mProgress = mProgress;
+    }
+
+    public void setPriority(int mPriority) {
+        this.mPriority = mPriority;
+    }
+
+    public void setStartAt(OffsetDateTime mStartAt) {
+        this.mStartAt = mStartAt;
+    }
+
+    public void setDeadline(OffsetDateTime mDeadline) {
+        this.mDeadline = mDeadline;
+    }
+
+    public void setDeadlineWarning(OffsetDateTime mDeadlineWarning) {
+        this.mDeadlineWarning = mDeadlineWarning;
+    }
+
+    public void setConfidentiality(int mConfidentiality) {
+        this.mConfidentiality = mConfidentiality;
+    }
+
+    public void setUrl(String mUrl) {
+        this.mUrl = mUrl;
+    }
+
+    public void setTrash(int mTrash) {
+        this.mTrash = mTrash;
     }
 }
