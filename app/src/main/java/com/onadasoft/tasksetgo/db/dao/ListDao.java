@@ -6,6 +6,7 @@
 
 package com.onadasoft.tasksetgo.db.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -34,7 +35,16 @@ public interface ListDao {
     @Delete
     void deleteLists(ListEntity... lists);
 
+    // TODO -- which Query should return a LiveData Object??
+
     @Query("SELECT * FROM list_table ORDER BY color ASC")
-    List<ListEntity> loadAllLists();
+    LiveData<List<ListEntity>> loadAllListsByColor();
+
+    @Query("SELECT * FROM list_table")
+    LiveData<List<ListEntity>> loadAllLists();
+
+
+    @Query("SELECT * FROM list_table ORDER BY name ASC")
+    LiveData<List<ListEntity>> loadAllListsByName();
 
 }
