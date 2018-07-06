@@ -31,7 +31,7 @@ import java.util.List;
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase{
 
-    private static AppDatabase INSTANCE;
+    private static AppDatabase sInstance;
 
     public static final String DATABASE_NAME = "tasksetgo-database";
 
@@ -43,15 +43,15 @@ public abstract class AppDatabase extends RoomDatabase{
     private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
     public static AppDatabase getInstance(final Context context, final AppExecutors executors){
-        if (INSTANCE == null){
+        if (sInstance == null){
             synchronized (AppDatabase.class){
-                if(INSTANCE == null){
-                    INSTANCE = buildDatabase(context.getApplicationContext(), executors);
-                    INSTANCE.updateDatabaseCreated(context.getApplicationContext());
+                if(sInstance == null){
+                    sInstance = buildDatabase(context.getApplicationContext(), executors);
+                    sInstance.updateDatabaseCreated(context.getApplicationContext());
                 }
             }
         }
-        return INSTANCE;
+        return sInstance;
     }
 
     /**
