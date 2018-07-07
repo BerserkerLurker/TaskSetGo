@@ -1,13 +1,12 @@
 /*
- * Created by Ahmed Karim on 25/06/18 22:23
+ * Created by Ahmed Karim on 07/07/18 15:51
  * Copyright (c) 2018 . All rights reserved.
- * Last modified 25/06/18 13:56
+ * Last modified 28/06/18 11:17
  */
 
-package com.onadasoft.tasksetgo;
+package com.onadasoft.tasksetgo.ui;
 
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -20,8 +19,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
+
+import com.onadasoft.tasksetgo.R;
+import com.onadasoft.tasksetgo.ui.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
