@@ -56,6 +56,7 @@ public class DataGenerator {
         List<ListEntity> lists = new ArrayList<>(9);
         for (int i = 0; i < 9; i++){
             ListEntity list = new ListEntity();
+            list.setId(i+1);
             list.setColor(i);
             list.setName(sColors[i]);
             lists.add(list);
@@ -72,6 +73,7 @@ public class DataGenerator {
             int tasksNumber = random.nextInt(5) + 1;
             for(int i = 0; i < tasksNumber; i++){
                 TaskEntity task = new TaskEntity();
+                task.setId(i+1);
                 task.setListId(list.getId());
                 // subtasks are 0 by default ??
                 task.setNumberSubtasks(random.nextInt(4));
@@ -114,6 +116,7 @@ public class DataGenerator {
             if (nbSubTasks > 0){
                 for(int i = 0; i < nbSubTasks; i++){
                     SubTaskEntity subTask = new SubTaskEntity();
+                    subTask.setId(i+1);
                     subTask.setTaskId(task.getId());
                     subTask.setTitle(MOCK2[random.nextInt(MOCK2.length)]);
 
