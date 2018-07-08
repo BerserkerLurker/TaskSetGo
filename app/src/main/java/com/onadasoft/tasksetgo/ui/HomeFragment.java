@@ -7,13 +7,23 @@
 package com.onadasoft.tasksetgo.ui;
 
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.onadasoft.tasksetgo.R;
+import com.onadasoft.tasksetgo.db.entity.ListEntity;
+import com.onadasoft.tasksetgo.db.entity.TaskEntity;
+import com.onadasoft.tasksetgo.viewmodel.ListViewModel;
+
+import java.util.List;
 
 
 /**
@@ -21,6 +31,9 @@ import com.onadasoft.tasksetgo.R;
  */
 public class HomeFragment extends Fragment {
 
+    private ListViewModel mListViewModel;
+
+    private TextView textTest;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -31,7 +44,34 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        textTest = view.findViewById(R.id.test_text1);
+
+
+        mListViewModel = ViewModelProviders.of(this).get(ListViewModel.class);
+
+        mListViewModel.getLists().observe(this, new Observer<List<ListEntity>>() {
+            @Override
+            public void onChanged(@Nullable List<ListEntity> listEntities) {
+                if(listEntities==null){
+                    Log.i("LIST_TEST", "List is null");
+                }else{
+
+                    int test = listEntities.size();
+
+                    Log.i("LIST_TEST", "List size "+test);
+
+                    for(ListEntity list : listEntities){
+                        Log.i("LIST_TEST", "List: "+list.getName());
+                    }
+
+                }
+            }
+        });
+
+        return view;
     }
 
 }
