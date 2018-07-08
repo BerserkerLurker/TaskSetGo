@@ -67,23 +67,20 @@ public abstract class AppDatabase extends RoomDatabase{
             @Override
             public void onCreate(@NonNull SupportSQLiteDatabase db) {
                 super.onCreate(db);
-                executors.diskIO().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Add a delay to simulate a long running operation
-                        addDelay();
-                        // Generate the data for pre-population
-                        AppDatabase database = AppDatabase.getInstance(appContext, executors);
+                executors.diskIO().execute(() -> {
+                    // Add a delay to simulate a long running operation
+                    addDelay();
+                    // Generate the data for pre-population
+                    AppDatabase database = AppDatabase.getInstance(appContext, executors);
 
-                        List<ListEntity> lists = DataGenerator.generateLists();
-                        List<TaskEntity> tasks = DataGenerator.generateTasks(lists);
-                        List<SubTaskEntity> subTasks = DataGenerator.generateSubTasks(tasks);
+                    List<ListEntity> lists = DataGenerator.generateLists();
+                    List<TaskEntity> tasks = DataGenerator.generateTasks(lists);
+                    List<SubTaskEntity> subTasks = DataGenerator.generateSubTasks(tasks);
 
-                        insertData(database, lists, tasks, subTasks);
+                    insertData(database, lists, tasks, subTasks);
 
-                        // notify that the database was created abnd it's ready to be used
-                        database.setDatabaseCreated();
-                    }
+                    // notify that the database was created abnd it's ready to be used
+                    database.setDatabaseCreated();
                 });
             }
         }).build();
@@ -104,13 +101,10 @@ public abstract class AppDatabase extends RoomDatabase{
 
     private static void insertData(final AppDatabase database, final List<ListEntity> lists,
                                    final List<TaskEntity> tasks, final List<SubTaskEntity> subTasks){
-        database.runInTransaction(new Runnable() {
-            @Override
-            public void run() {
-                database.listDao().insertAllLists(lists);
-                database.taskDao().insertAllTasks(tasks);
-                database.subTaskDao().insertAllSubTasks(subTasks);
-            }
+        database.runInTransaction(() -> {
+            database.listDao().insertAllLists(lists);
+            database.taskDao().insertAllTasks(tasks);
+            database.subTaskDao().insertAllSubTasks(subTasks);
         });
     }
 
