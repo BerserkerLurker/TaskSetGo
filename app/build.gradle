@@ -50,4 +50,7 @@ dependencies {
     // ThreeTenABP
     implementation 'com.jakewharton.threetenabp:threetenabp:1.1.0'
 
+    // Expandable RecyclerView
+    implementation 'com.thoughtbot:expandablecheckrecyclerview:1.4'
+
 }
